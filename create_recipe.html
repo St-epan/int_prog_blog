@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать рецепт</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Мой Кулинарный Блог</h1>
+            <nav>
+                <a href="/">Главная</a>
+                <a href="/about">О блоге</a>
+                <a href="/create">Создать рецепт</a>
+            </nav>
+        </header>
+
+        <main>
+            <h2>Создать новый рецепт</h2>
+
+            <form method="POST" action="/create" class="recipe-form">
+                <div class="form-group">
+                    <label for="title">Название рецепта:</label>
+                    <input type="text" id="title" name="title" required placeholder="Введите название рецепта">
+                </div>
+
+                <div class="form-group">
+                    <label for="recipe_id">ID рецепта:</label>
+                    <input type="text" id="recipe_id" name="recipe_id" required
+                           pattern="[a-zA-Z0-9-]+"
+                           title="Только английские буквы, цифры и дефисы"
+                           placeholder="например: my_recipe">
+                    <small>Только английские буквы, цифры и дефисы. Это будет частью URL.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="ingredients">Ингредиенты (каждый с новой строки):</label>
+                    <textarea id="ingredients" name="ingredients" rows="6" required
+                              placeholder="Мука - 200г
+Яйца - 2 шт
+Сахар - 100г"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="instructions">Инструкция приготовления:</label>
+                    <textarea id="instructions" name="instructions" rows="8" required
+                              placeholder="Опишите шаги приготовления..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn">Создать рецепт</button>
+                    <a href="/" class="btn btn-secondary">Отмена</a>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
